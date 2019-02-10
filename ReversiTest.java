@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import fr.erdf.siae.business.a0x.Reversi;
+import fr.erdf.siae.business.a0x.TableJeu;
 
 public class ReversiTest {
     @Test
@@ -20,17 +21,8 @@ public class ReversiTest {
         grille[5][1] = 'B';
         grille[6][4] = 'W';
         grille[6][5] = 'B';
-        Assert.assertArrayEquals(grille, Reversi.transformerListeEnGrille(etatJeuDepart));
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void transformerListeEnGrilleVide() {
-        Reversi.transformerListeEnGrille("");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void transformerEnGrilleListeAbsente() {
-        Reversi.transformerListeEnGrille(null);
+        TableJeu tableJeu = new TableJeu(etatJeuDepart);
+        Assert.assertArrayEquals(grille, tableJeu.getGrille2D());
     }
 
     @Test
@@ -39,6 +31,6 @@ public class ReversiTest {
                 + "...WB..." + "\n" + "........" + "\n" + "........" + "\n" + "........" + "\n" + "B";
         String etatJeuB = "........" + "\n" + "........" + "\n" + "........" + "\n" + "...BWB.." + "\n" + "...WB..."
                 + "\n" + "........" + "\n" + "........" + "\n" + "........" + "\n" + "B";
-        Assert.assertArrayEquals(Reversi.transformerListeEnGrille(etatJeuB), Reversi.positionnerNoir(etatJeuDepart));
+        Assert.assertArrayEquals(new TableJeu(etatJeuB).getGrille2D(), Reversi.positionnerNoir(etatJeuDepart));
     }
 }
