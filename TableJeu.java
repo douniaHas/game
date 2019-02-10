@@ -4,23 +4,31 @@ public class TableJeu {
     public static final char S_RETOUR_A_LA_LIGNE = '\n';
     private static final int DIM = 8;
     private String grilleLineaire;
-    private char[][] grille2D;
+    private char[][] grille2DDepart;
+    private char[][] grille2DArrivee;
 
     public TableJeu(String grilleLineaire) {
         if ("".equals(grilleLineaire) || grilleLineaire == null) {
             throw new IllegalArgumentException("La grille doit être initialisée");
         }
         this.grilleLineaire = grilleLineaire;
-        this.grille2D = transformerListeEnGrille(grilleLineaire);
+        this.grille2DDepart = transformerListeEnGrille(grilleLineaire);
     }
 
-    public TableJeu(TableJeu ancienneTableJeu) {
-        this.grilleLineaire = ancienneTableJeu.getGrilleLineaire();
-        char[][] copieGrille = new char[ancienneTableJeu.grille2D.length][];
-        for (int i = 0; i < ancienneTableJeu.grille2D.length; i++) {
-            copieGrille[i] = ancienneTableJeu.grille2D[i].clone();
+    // public TableJeu(TableJeu ancienneTableJeu) {
+    // this.grilleLineaire = ancienneTableJeu.getGrilleLineaire();
+    // char[][] copieGrille = new char[ancienneTableJeu.grille2DDepart.length][];
+    // for (int i = 0; i < ancienneTableJeu.grille2DDepart.length; i++) {
+    // copieGrille[i] = ancienneTableJeu.grille2DDepart[i].clone();
+    // }
+    // this.grille2DDepart = copieGrille;
+    // }
+    public void copierGrille2DDepartVersArrivee() {
+        char[][] copieGrille = new char[this.grille2DDepart.length][];
+        for (int i = 0; i < this.grille2DDepart.length; i++) {
+            copieGrille[i] = this.grille2DDepart[i].clone();
         }
-        this.grille2D = copieGrille;
+        this.grille2DArrivee = copieGrille;
     }
 
     private char[][] transformerListeEnGrille(String liste) {
@@ -41,7 +49,15 @@ public class TableJeu {
         return grilleLineaire;
     }
 
-    public char[][] getGrille2D() {
-        return grille2D;
+    public char[][] getGrille2DDepart() {
+        return grille2DDepart;
+    }
+
+    public char[][] getGrille2DArrivee() {
+        return grille2DArrivee;
+    }
+
+    public void setGrille2DArrivee(char[][] grille) {
+        this.grille2DArrivee = grille;
     }
 }
