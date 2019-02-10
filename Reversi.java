@@ -1,7 +1,7 @@
 package fr.erdf.siae.business.a0x;
 
 public class Reversi {
-    public static char[][] positionnerNoir(String grilleLineaire) {
+    public static char[][] positionnerJoueur(String grilleLineaire) {
         TableJeu tableJeu = new TableJeu(grilleLineaire);
         tableJeu.copierGrille2DDepartVersArrivee();
         for (int i = 0; i < tableJeu.getGrille2DDepart().length; i++) {
@@ -24,12 +24,12 @@ public class Reversi {
     private static void positionnerDirectionGauche(TableJeu tableJeu, int i, int j) {
         int iLocal = i;
         int jLocal = j;
-        boolean haveW = false;
+        boolean aOppose = false;
         while (jLocal > 0 && tableJeu.getGrille2DDepart()[iLocal][jLocal - 1] == tableJeu.getJoueurOppose()) {
             jLocal = jLocal - 1;
-            haveW = true;
+            aOppose = true;
         }
-        if (haveW && jLocal > 0 && tableJeu.getGrille2DDepart()[iLocal][jLocal - 1] == tableJeu.getJoueurActuel()) {
+        if (aOppose && jLocal > 0 && tableJeu.getGrille2DDepart()[iLocal][jLocal - 1] == tableJeu.getJoueurActuel()) {
             tableJeu.getGrille2DArrivee()[i][j] = tableJeu.getJoueurActuel();
         }
     }
@@ -37,14 +37,14 @@ public class Reversi {
     private static void positionnerDirectionHautGauche(TableJeu tableJeu, int i, int j) {
         int iLocal = i;
         int jLocal = j;
-        boolean haveW = false;
+        boolean aOppose = false;
         while (jLocal > 0 && iLocal > 0
                 && tableJeu.getGrille2DDepart()[iLocal - 1][jLocal - 1] == tableJeu.getJoueurOppose()) {
             iLocal = iLocal - 1;
             jLocal = jLocal - 1;
-            haveW = true;
+            aOppose = true;
         }
-        if (haveW && jLocal > 0 && iLocal > 0
+        if (aOppose && jLocal > 0 && iLocal > 0
                 && tableJeu.getGrille2DDepart()[iLocal - 1][jLocal - 1] == tableJeu.getJoueurActuel()) {
             tableJeu.getGrille2DArrivee()[i][j] = tableJeu.getJoueurActuel();
         }
@@ -54,13 +54,13 @@ public class Reversi {
         if (j < tableJeu.getGrille2DDepart().length - 1) {
             int iLocal = i;
             int jLocal = j;
-            boolean haveW = false;
+            boolean aOppose = false;
             while (jLocal < tableJeu.getGrille2DDepart().length - 1
                     && tableJeu.getGrille2DDepart()[iLocal][jLocal + 1] == tableJeu.getJoueurOppose()) {
                 jLocal = jLocal + 1;
-                haveW = true;
+                aOppose = true;
             }
-            if (haveW && jLocal > 0 && iLocal < (tableJeu.getGrille2DDepart().length - 1)
+            if (aOppose && jLocal > 0 && iLocal < (tableJeu.getGrille2DDepart().length - 1)
                     && tableJeu.getGrille2DDepart()[iLocal][jLocal + 1] == tableJeu.getJoueurActuel()) {
                 tableJeu.getGrille2DArrivee()[i][j] = tableJeu.getJoueurActuel();
             }
@@ -71,14 +71,14 @@ public class Reversi {
         if (i < tableJeu.getGrille2DDepart().length - 1 && j < tableJeu.getGrille2DDepart().length - 1) {
             int iLocal = i;
             int jLocal = j;
-            boolean haveW = false;
+            boolean aOppose = false;
             while (iLocal < tableJeu.getGrille2DDepart().length - 1 && jLocal < tableJeu.getGrille2DDepart().length - 1
                     && tableJeu.getGrille2DDepart()[iLocal + 1][jLocal + 1] == 'W') {
                 iLocal = iLocal + 1;
                 jLocal = jLocal + 1;
-                haveW = true;
+                aOppose = true;
             }
-            if (haveW && iLocal < (tableJeu.getGrille2DDepart().length - 1)
+            if (aOppose && iLocal < (tableJeu.getGrille2DDepart().length - 1)
                     && jLocal < (tableJeu.getGrille2DDepart().length - 1)
                     && tableJeu.getGrille2DDepart()[iLocal + 1][jLocal + 1] == tableJeu.getJoueurActuel()) {
                 tableJeu.getGrille2DArrivee()[i][j] = tableJeu.getJoueurActuel();
@@ -90,13 +90,13 @@ public class Reversi {
         if (i < tableJeu.getGrille2DDepart().length - 1) {
             int iLocal = i;
             int jLocal = j;
-            boolean haveW = false;
+            boolean aOppose = false;
             while (iLocal < tableJeu.getGrille2DDepart().length - 1
                     && tableJeu.getGrille2DDepart()[iLocal + 1][jLocal] == tableJeu.getJoueurOppose()) {
                 iLocal = iLocal + 1;
-                haveW = true;
+                aOppose = true;
             }
-            if (haveW && iLocal < (tableJeu.getGrille2DDepart().length - 1)
+            if (aOppose && iLocal < (tableJeu.getGrille2DDepart().length - 1)
                     && tableJeu.getGrille2DDepart()[iLocal + 1][jLocal] == tableJeu.getJoueurActuel()) {
                 tableJeu.getGrille2DArrivee()[i][j] = tableJeu.getJoueurActuel();
             }
@@ -107,14 +107,14 @@ public class Reversi {
         if (i > 0 && j < tableJeu.getGrille2DDepart().length - 1) {
             int iLocal = i;
             int jLocal = j;
-            boolean haveW = false;
+            boolean aOppose = false;
             while (iLocal > 0 && jLocal < tableJeu.getGrille2DDepart().length - 1
                     && tableJeu.getGrille2DDepart()[iLocal - 1][jLocal + 1] == tableJeu.getJoueurOppose()) {
                 iLocal = iLocal - 1;
                 jLocal = jLocal + 1;
-                haveW = true;
+                aOppose = true;
             }
-            if (haveW && iLocal > 0 && jLocal < (tableJeu.getGrille2DDepart().length - 1)
+            if (aOppose && iLocal > 0 && jLocal < (tableJeu.getGrille2DDepart().length - 1)
                     && tableJeu.getGrille2DDepart()[iLocal - 1][jLocal + 1] == tableJeu.getJoueurActuel()) {
                 tableJeu.getGrille2DArrivee()[i][j] = tableJeu.getJoueurActuel();
             }
@@ -124,12 +124,12 @@ public class Reversi {
     private static void positionnerDirectionHaut(TableJeu tableJeu, int i, int j) {
         int iLocal = i;
         int jLocal = j;
-        boolean haveW = false;
+        boolean aOppose = false;
         while (iLocal > 0 && tableJeu.getGrille2DDepart()[iLocal - 1][jLocal] == tableJeu.getJoueurOppose()) {
             iLocal = iLocal - 1;
-            haveW = true;
+            aOppose = true;
         }
-        if (haveW && iLocal > 0 && tableJeu.getGrille2DDepart()[iLocal - 1][jLocal] == tableJeu.getJoueurActuel()) {
+        if (aOppose && iLocal > 0 && tableJeu.getGrille2DDepart()[iLocal - 1][jLocal] == tableJeu.getJoueurActuel()) {
             tableJeu.getGrille2DArrivee()[i][j] = tableJeu.getJoueurActuel();
         }
     }
@@ -138,14 +138,14 @@ public class Reversi {
         if (i < tableJeu.getGrille2DDepart().length - 1) {
             int iLocal = i;
             int jLocal = j;
-            boolean haveW = false;
+            boolean aOppose = false;
             while (jLocal > 0 && iLocal < tableJeu.getGrille2DDepart().length - 1
                     && tableJeu.getGrille2DDepart()[iLocal + 1][jLocal - 1] == tableJeu.getJoueurOppose()) {
                 iLocal = iLocal + 1;
                 jLocal = jLocal - 1;
-                haveW = true;
+                aOppose = true;
             }
-            if (haveW && jLocal > 0 && iLocal < (tableJeu.getGrille2DDepart().length - 1)
+            if (aOppose && jLocal > 0 && iLocal < (tableJeu.getGrille2DDepart().length - 1)
                     && tableJeu.getGrille2DDepart()[iLocal + 1][jLocal - 1] == tableJeu.getJoueurActuel()) {
                 tableJeu.getGrille2DArrivee()[i][j] = tableJeu.getJoueurActuel();
             }
