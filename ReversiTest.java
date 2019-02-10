@@ -34,11 +34,11 @@ public class ReversiTest {
     }
 
     @Test
-    public void getProchainsMouvementsPossibles() {
+    public void getProchainsMouvementsPossiblesNoirDirectionGauche() {
         String etatJeuDepart = "........" + "\n" + "........" + "\n" + "........" + "\n" + "...BW..." + "\n"
                 + "...WB..." + "\n" + "........" + "\n" + "........" + "\n" + "........" + "\n" + "B";
-        String etatJeuB = "........" + "\n" + "........" + "\n" + "....B..." + "\n" + "...BWB.." + "\n" + "..BWB..."
-                + "\n" + "...B...." + "\n" + "........" + "\n" + "........" + "\n" + "B";
+        String etatJeuB = "........" + "\n" + "........" + "\n" + "........" + "\n" + "...BWB.." + "\n" + "...WB..."
+                + "\n" + "........" + "\n" + "........" + "\n" + "........" + "\n" + "B";
         Assert.assertArrayEquals(Reversi.transformerListeEnGrille(etatJeuB), Reversi.positionnerNoir(etatJeuDepart));
     }
 }
