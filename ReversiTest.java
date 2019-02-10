@@ -42,21 +42,4 @@ public class ReversiTest {
                 + "\n" + ".B.WWWW." + "\n" + "...BWBBB" + "\n" + ".....B.." + "\n" + "B";
         Assert.assertArrayEquals(new TableJeu(etatBJoue).getGrille2DDepart(), Reversi.positionnerNoir(etatJeuDepart));
     }
-    // @Test
-    // public void getProchainsMouvementsPossiblesNoirDirectionGauche() {
-    // String etatJeuDepart = "........" + "\n" + "........" + "\n" + "........" + "\n" + "...BW..." + "\n"
-    // + "...WB..." + "\n" + "........" + "\n" + "........" + "\n" + "........" + "\n" + "B";
-    // String etatJeuB = "........" + "\n" + "........" + "\n" + "........" + "\n" + "...BWB.." + "\n" + "...WB..."
-    // + "\n" + "........" + "\n" + "........" + "\n" + "........" + "\n" + "B";
-    // Assert.assertArrayEquals(new TableJeu(etatJeuB).getGrille2DDepart(), Reversi.positionnerNoir(etatJeuDepart));
-    // }
-    //
-    // @Test
-    // public void getProchainsMouvementsPossiblesNoirDirectionHautGauche() {
-    // String etatJeuDepart = "........" + "\n" + "........" + "\n" + "...B...." + "\n" + "...BW..." + "\n"
-    // + "...WB..." + "\n" + "........" + "\n" + "........" + "\n" + "........" + "\n" + "B";
-    // String etatJeuB = "........" + "\n" + "........" + "\n" + "........" + "\n" + "...BWB.." + "\n" + "...WBB.."
-    // + "\n" + "........" + "\n" + "........" + "\n" + "........" + "\n" + "B";
-    // Assert.assertArrayEquals(new TableJeu(etatJeuB).getGrille2DDepart(), Reversi.positionnerNoir(etatJeuDepart));
-    // }
 }

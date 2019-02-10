@@ -15,14 +15,6 @@ public class TableJeu {
         this.grille2DDepart = transformerListeEnGrille(grilleLineaire);
     }
 
-    // public TableJeu(TableJeu ancienneTableJeu) {
-    // this.grilleLineaire = ancienneTableJeu.getGrilleLineaire();
-    // char[][] copieGrille = new char[ancienneTableJeu.grille2DDepart.length][];
-    // for (int i = 0; i < ancienneTableJeu.grille2DDepart.length; i++) {
-    // copieGrille[i] = ancienneTableJeu.grille2DDepart[i].clone();
-    // }
-    // this.grille2DDepart = copieGrille;
-    // }
     public void copierGrille2DDepartVersArrivee() {
         char[][] copieGrille = new char[this.grille2DDepart.length][];
         for (int i = 0; i < this.grille2DDepart.length; i++) {
