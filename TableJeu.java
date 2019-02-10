@@ -5,6 +5,9 @@ public class TableJeu {
     private String grilleLineaire;
 
     public TableJeu(String grilleLineaire) {
+        if ("".equals(grilleLineaire) || grilleLineaire == null) {
+            throw new IllegalArgumentException("La grille doit être initialisée");
+        }
         this.grilleLineaire = grilleLineaire;
     }
 
