@@ -6,6 +6,8 @@ public class TableJeu {
     private String grilleLineaire;
     private char[][] grille2DDepart;
     private char[][] grille2DArrivee;
+    private char joueurActuel;
+    private char joueurOppose;
 
     public TableJeu(String grilleLineaire) {
         if ("".equals(grilleLineaire) || grilleLineaire == null) {
@@ -13,6 +15,8 @@ public class TableJeu {
         }
         this.grilleLineaire = grilleLineaire;
         this.grille2DDepart = transformerListeEnGrille(grilleLineaire);
+        this.joueurActuel = construireJoueurActuel();
+        this.joueurOppose = getOppose(joueurActuel);
     }
 
     public void copierGrille2DDepartVersArrivee() {
@@ -21,6 +25,14 @@ public class TableJeu {
             copieGrille[i] = this.grille2DDepart[i].clone();
         }
         this.grille2DArrivee = copieGrille;
+    }
+
+    private char getOppose(char c) {
+        return c == 'W' ? 'B' : 'W';
+    }
+
+    private char construireJoueurActuel() {
+        return grilleLineaire.charAt(grilleLineaire.length() - 1);
     }
 
     private char[][] transformerListeEnGrille(String liste) {
@@ -51,5 +63,13 @@ public class TableJeu {
 
     public void setGrille2DArrivee(char[][] grille) {
         this.grille2DArrivee = grille;
+    }
+
+    public char getJoueurActuel() {
+        return joueurActuel;
+    }
+
+    public char getJoueurOppose() {
+        return joueurOppose;
     }
 }
