@@ -3,8 +3,8 @@ package reversi;
 import org.junit.Assert;
 import org.junit.Test;
 
-import Reversi;
-import TableJeu;
+import reversi.Reversi;
+import reversi.TableJeu;
 
 public class ReversiTest {
     @Test
