@@ -1,10 +1,10 @@
-package fr.erdf.siae.business.a06;
+package reversi;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import fr.erdf.siae.business.a0x.Reversi;
-import fr.erdf.siae.business.a0x.TableJeu;
+import Reversi;
+import TableJeu;
 
 public class ReversiTest {
     @Test

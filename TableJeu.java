@@ -1,4 +1,4 @@
-package fr.erdf.siae.business.a0x;
+package reversi;
 
 public class TableJeu {
     public static final char S_RETOUR_A_LA_LIGNE = '\n';

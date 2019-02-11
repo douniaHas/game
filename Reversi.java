@@ -1,4 +1,4 @@
-package fr.erdf.siae.business.a0x;
+package reversi;
 
 public class Reversi {
     public static char[][] positionnerJoueur(String grilleLineaire) {
